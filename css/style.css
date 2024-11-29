@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: url('../images/honda-bike1.jpg') no-repeat center center/cover;
+    color: white;
+    height: 300px;
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+.card-body .btn {
+    margin: 0 10px; /* Khoảng cách ngang giữa các nút */
+}
+
+.card-body .btn-success {
+    margin-left: auto; /* Đẩy nút "Thêm vào Giỏ Hàng" sang bên phải */
+}
+.navbar {
+    background-color: #f8f9fa; /* Màu nền sáng */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tạo bóng */
+    position: sticky; /* Làm header cố định */
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff; /* Màu xanh dương khi hover */
+}
+header {
+    background: linear-gradient(to right, #007bff, #6610f2); /* Hiệu ứng chuyển màu */
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+header a.btn {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+header a.btn:hover {
+    background-color: #6610f2;
+    color: #fff;
+}
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Nhấc lên khi hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Bóng đẹp */
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form .form-control {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease-in-out;
+}
+
+form .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+form button {
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease-in-out;
+}
+/* Background image cho phần giới thiệu */
+#about {
+    background: url('images/about-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: black; /* Đặt màu chữ toàn bộ phần giới thiệu là màu đen */
+    padding: 100px 0; /* Tạo khoảng cách cho phần text */
+}
+
+/* Tiêu đề màu trắng */
+#about h2 {
+    color: white; /* Màu chữ của tiêu đề vẫn giữ trắng */
+}
+
+/* Phần mô tả nội dung có màu đen */
+#about p {
+    color: black; /* Chỉnh lại màu chữ nội dung thành đen */
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Button quay về trang chủ */
+.btn-back {
+    background-color: #00b4d8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: #0077b6;
+}
+

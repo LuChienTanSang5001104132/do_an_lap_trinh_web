@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Giỏ Hàng Của Bạn</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Giá</th>
+                    <th>Số Lượng</th>
+                    <th>Thao Tác</th>
+                </tr>
+            </thead>
+            <tbody id="cartTableBody">
+                <!-- Các sản phẩm trong giỏ hàng sẽ được hiển thị ở đây -->
+            </tbody>
+        </table>
+        <div id="cartTotal">
+            <p><strong>Tổng cộng: </strong><span id="totalPrice">0</span> triệu VNĐ</p>
+        </div>
+        <div class="text-center mt-4">
+            <a href="index.html" class="btn btn-primary">Quay về Trang Chủ</a>
+        </div>
+    </div>
+
+    <script>
+        // Hàm hiển thị giỏ hàng
+        function displayCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartTableBody = document.getElementById('cartTableBody');
+            let totalPrice = 0;
+
+            // Hiển thị các sản phẩm trong giỏ hàng
+            cartTableBody.innerHTML = '';
+            cart.forEach(product => {
+                let row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.name}</td>
+                    <td>${product.price} triệu VNĐ</td>
+                    <td>${product.quantity}</td>
+                    <td><button class="btn btn-danger btn-sm deleteProductBtn" onclick="removeFromCart('${product.name}')">Xóa</button></td>
+                `;
+                cartTableBody.appendChild(row);
+                totalPrice += product.price * product.quantity;
+            });
+
+            // Hiển thị tổng tiền
+            document.getElementById('totalPrice').textContent = totalPrice;
+        }
+
+        // Hàm xóa sản phẩm khỏi giỏ hàng
+        function removeFromCart(productName) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(product => product.name !== productName);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart();  // Cập nhật lại giỏ hàng sau khi xóa sản phẩm
+        }
+
+        window.onload = displayCart;  // Hiển thị giỏ hàng khi trang được tải
+    </script>
+</body>
+</html>

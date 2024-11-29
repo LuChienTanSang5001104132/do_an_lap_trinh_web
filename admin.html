@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Trị Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-4">
+        <h1>Quản Trị Website</h1>
+    </header>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Quản Lý Website</h2>
+
+        <div class="row">
+            <!-- Quản lý người dùng -->
+            <div class="col-md-6">
+                <h4>Quản Lý Người Dùng</h4>
+                <button class="btn btn-primary mb-2" id="addUserBtn">Thêm Người Dùng</button>
+                <table class="table table-bordered" id="userTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên Người Dùng</th>
+                            <th>Email</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>nguyenvana@example.com</td>
+                            <td>
+                                <button class="btn btn-danger btn-sm deleteUserBtn">Xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Quản lý sản phẩm -->
+            <div class="col-md-6">
+                <h4>Quản Lý Sản Phẩm</h4>
+                <button class="btn btn-primary mb-2" id="addProductBtn">Thêm Sản Phẩm</button>
+                <table class="table table-bordered" id="productTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Giá</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Honda Wave Alpha</td>
+                            <td>17 triệu VNĐ</td>
+                            <td>
+                                <button class="btn btn-danger btn-sm deleteProductBtn">Xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer trong thẻ body -->
+    <footer class="text-center py-4 bg-light">
+        <a href="index.html" class="btn btn-primary mb-3">Quay về Trang Chủ</a>
+        <p>&copy; 2024 Honda Shop. Tất cả các quyền được bảo lưu.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let userId = 2;
+            let productId = 2;
+
+            // Thêm người dùng
+            $('#addUserBtn').click(function () {
+                const userName = prompt('Nhập tên người dùng:');
+                const userEmail = prompt('Nhập email người dùng:');
+                if (userName && userEmail) {
+                    $('#userTable tbody').append(`
+                        <tr>
+                            <td>${userId++}</td>
+                            <td>${userName}</td>
+                            <td>${userEmail}</td>
+                            <td><button class="btn btn-danger btn-sm deleteUserBtn">Xóa</button></td>
+                        </tr>
+                    `);
+                }
+            });
+
+            // Thêm sản phẩm
+            $('#addProductBtn').click(function () {
+                const productName = prompt('Nhập tên sản phẩm:');
+                const productPrice = prompt('Nhập giá sản phẩm:');
+                if (productName && productPrice) {
+                    $('#productTable tbody').append(`
+                        <tr>
+                            <td>${productId++}</td>
+                            <td>${productName}</td>
+                            <td>${productPrice}</td>
+                            <td><button class="btn btn-danger btn-sm deleteProductBtn">Xóa</button></td>
+                        </tr>
+                    `);
+                }
+            });
+
+            // Xóa người dùng
+            $(document).on('click', '.deleteUserBtn', function () {
+                $(this).closest('tr').remove();
+            });
+
+            // Xóa sản phẩm
+            $(document).on('click', '.deleteProductBtn', function () {
+                $(this).closest('tr').remove();
+            });
+        });
+    </script>
+</body>
+</html>
